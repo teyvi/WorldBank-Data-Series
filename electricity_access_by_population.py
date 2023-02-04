@@ -9,6 +9,8 @@ electric_access.columns = ['Year', 'Electricity Access']
 print(electric_access)
 
 world = geopandas.read_file(geopandas.datasets.get_path('naturalearth_lowres'))
+world = world[world['name']!= 'Antarctica']
+
 pd.set_option('display.max_columns', 10)
 pd.set_option('display.max_columns', 10)
 pd.set_option('display.width', 1000)
