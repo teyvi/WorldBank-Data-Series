@@ -1,6 +1,7 @@
 import pandas as pd
 from pandas_datareader import wb
 import geopandas
+import matplotlib.pyplot as plt
 
 electric_access = wb.download(country='all', indicator='EG.ELC.ACCS.ZS', start=2000, end= 2020)
 electric_access = electric_access.reset_index(1)
