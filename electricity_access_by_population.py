@@ -3,16 +3,26 @@ from pandas_datareader import wb
 import geopandas
 import matplotlib.pyplot as plt
 
-electric_access = wb.download(country='all', indicator='EG.ELC.ACCS.ZS', start=2000, end= 2020)
-electric_access = electric_access.reset_index(1)
-electric_access.columns = ['Year', 'Electricity Access']
-print(electric_access)
+data = wb.download(country='all', indicator='EG.ELC.ACCS.ZS', start=2000, end= 2020)
+data = data.reset_index(1)
+data.columns = ['Year', 'Electricity Access']
 
-world = geopandas.read_file(geopandas.datasets.get_path('naturalearth_lowres'))
-world = world[world['name']!= 'Antarctica']
+map = geopandas.read_file(geopandas.datasets.get_path('naturalearth_lowres'))
+map = map[map['name']!= 'Antarctica']
+map = map.set_index('name')
+index_change = {
+    'United States of America': 'United states',
+    'Russia': 'Russia Federation'
+}
+map = map.rename(index = index_change)
+data = map.join(data, how = 'outer')
 
 pd.set_option('display.max_columns', 10)
-pd.set_option('display.max_columns', 10)
+pd.set_option('display.max_rows', 300)
 pd.set_option('display.width', 1000)
-print(world)
+print(data)
+
+data.plot('Electricity Access')
+plt.show()
+
 
