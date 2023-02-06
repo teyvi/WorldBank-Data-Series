@@ -10,19 +10,29 @@ data.columns = ['Year', 'Electricity Access']
 map = geopandas.read_file(geopandas.datasets.get_path('naturalearth_lowres'))
 map = map[map['name']!= 'Antarctica']
 map = map.set_index('name')
-index_change = {
-    'United States of America': 'United states',
-    'Russia': 'Russia Federation'
+ """ index_change = {
+     'United States of America': 'United States',
+    'Yemen': 'Yemen, Rep.',
+    'Venezuela': 'Venezuela, RB',
+    'Syria': 'Syrian Arab Republic',
+    'Solomon Is.': 'Solomon Islands',
+    'Russia': 'Russian Federation',
+    'Iran': 'Iran, Islamic Rep.',
+    'Gambia': 'Gambia, The',
+    'Kyrgyzstan': 'Kyrgyz Republic',
+    'Mauritania': 'Mauritius',
+    'Egypt': 'Egypt, Arab Rep.'
 }
+"""
 map = map.rename(index = index_change)
 data = map.join(data, how = 'outer')
 
-pd.set_option('display.max_columns', 10)
-pd.set_option('display.max_rows', 300)
+pd.set_option('display.max_columns', None)
+pd.set_option('display.max_rows', None)
 pd.set_option('display.width', 1000)
 print(data)
 
-data.plot('Electricity Access')
-plt.show()
+ data.plot('Electricity Access')
+ plt.show()
 
 
