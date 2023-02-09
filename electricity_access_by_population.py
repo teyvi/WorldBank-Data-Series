@@ -7,9 +7,14 @@ data = wb.download(country='all', indicator='EG.ELC.ACCS.ZS', start=2000, end= 2
 data = data.reset_index(1)
 data.columns = ['Year', 'Electricity Access']
 
+df = pd.read_csv(data)
+missing_data = df.isna()
+print(missing_data)
+
 map = geopandas.read_file(geopandas.datasets.get_path('naturalearth_lowres'))
 map = map[map['name']!= 'Antarctica']
 map = map.set_index('name')
+
 index_change = {
      'United States of America': 'United States',
     'Yemen': 'Yemen, Rep.',
