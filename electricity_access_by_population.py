@@ -3,13 +3,10 @@ from pandas_datareader import wb
 import geopandas
 import matplotlib.pyplot as plt
 
-data = wb.download(country='all', indicator='EG.ELC.ACCS.ZS', start=2000, end= 2020)
+data = wb.download(country='Africa', indicator='EG.ELC.ACCS.ZS', start=2000, end=2020)
 data = data.reset_index(1)
 data.columns = ['Year', 'Electricity Access']
 
-df = pd.read_csv(data)
-missing_data = df.isna()
-print(missing_data)
 
 map = geopandas.read_file(geopandas.datasets.get_path('naturalearth_lowres'))
 map = map[map['name']!= 'Antarctica']
