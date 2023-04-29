@@ -15,9 +15,9 @@ africa_map=africa_map.set_index('name')
 data= africa_map.join(data, how='outer')
 pd.set_option('display.max_rows', None)
 
-print(data)
-data.plot('inflation')
-plt.show()
+#print(data)
+#data.plot('inflation')
+#plt.show()
 
 #finding missing data
 #print(data.isna())
