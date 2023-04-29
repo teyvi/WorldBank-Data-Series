@@ -13,13 +13,13 @@ world_map = geopandas.read_file(geopandas.datasets.get_path('naturalearth_lowres
 africa_map = world_map[world_map['continent'].str.lower() == 'africa']
 africa_map=africa_map.set_index('name')
 data= africa_map.join(data, how='outer')
-#setting columns
-pd.set_option('display.max_columns',10)
-pd.set_option('display.max_rows',300)
-pd.set_option('display.width',1000)
+pd.set_option('display.max_rows', None)
+
 print(data)
+data.plot('inflation')
+plt.show()
 
 #finding missing data
-print(data.isna())
-data.isna().sum().plot(kind='bar')
-plt.show()
+#print(data.isna())
+#data.isna().sum().plot(kind='bar')
+#plt.show()
