@@ -12,10 +12,10 @@ data.columns = ['year','inflation']
 world_map = geopandas.read_file(geopandas.datasets.get_path('naturalearth_lowres'))
 africa_map = world_map[world_map['continent'].str.lower() == 'africa']
 africa_map=africa_map.set_index('name')
-data= africa_map.join(data, how='outer')
+join_data= africa_map.join(data, how='outer')
 pd.set_option('display.max_rows', None)
 
-#print(data)
+print(join_data)
 #data.plot('inflation')
 #plt.show()
 
