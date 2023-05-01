@@ -16,8 +16,8 @@ join_data= africa_map.join(data, how='outer')
 pd.set_option('display.max_rows', None)
 
 print(join_data)
-#data.plot('inflation')
-#plt.show()
+join_data.plot(column= 'inflation', cmap = 'Reds')
+plt.show()
 
 #finding missing data
 #print(data.isna())
