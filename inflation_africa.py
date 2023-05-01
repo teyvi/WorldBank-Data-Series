@@ -16,7 +16,13 @@ join_data= africa_map.join(data, how='outer')
 pd.set_option('display.max_rows', None)
 
 print(join_data)
-join_data.plot(column= 'inflation', cmap = 'Reds')
+join_data.plot(column= 'inflation',
+               cmap = 'Reds',
+               legend= True,
+               scheme= 'user_defined',
+               classification_kwds= {'bins':[10, 20, 50, 100, 500, 1000]},
+               figsize= (10,10),
+               )
 plt.show()
 
 #finding missing data
