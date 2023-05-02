@@ -25,7 +25,7 @@ print(join_data)
 
 #plotting the data
 ax= join_data.plot(column= 'inflation',
-               cmap = 'Reds',
+               cmap = 'Greens',
                legend= True,
                scheme= 'user_defined',
                classification_kwds= {'bins':[10, 20, 50, 100, 500, 1000]},
