@@ -29,7 +29,7 @@ ax= join_data.plot(column= 'inflation',
                legend= True,
                scheme= 'user_defined',
                classification_kwds= {'bins':[10, 20, 50, 100, 500, 1000]},
-               figsize= (10,10),
+               figsize= (100,10),
                )
 
 #add title to the map
