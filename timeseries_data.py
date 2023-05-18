@@ -29,7 +29,7 @@ world_map = geopandas.read_file(geopandas.datasets.get_path('naturalearth_lowres
 #Removing other continents except Africa
 africa_map = world_map[world_map['continent'].str.lower() == 'africa']
 
-#replacing the data with different names
+replacing the data with different names
 #africa_map.replace['Central African Republic','Central African Rep. ', inplace = True]
 #africa_map.replace["Cote d'Ivoire","Côte d'Ivoire", inplace = True]
 #africa_map.replace["Congo, Dem. Rep."," Dem. Rep. Congo", inplace = True]
