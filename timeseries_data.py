@@ -1,6 +1,6 @@
 from pandas_datareader import wb
 from prettytable import PrettyTable
-import geopandas
+import geopandas as gpd
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -19,7 +19,7 @@ data= data.reset_index(1)
 data.columns = ['year','inflation']
 pd.set_option('display.max_rows', None)
 
-#loading world map
+#Reading the world map
 world= gpd.read_file(r'/Users/angelateyvi/Documents/GitHub/WorldBank-Data-Series/worldmap/World_Map.shp')
 #world_map = geopandas.read_file(geopandas.datasets.get_path('naturalearth_lowres'))
 
