@@ -20,11 +20,7 @@ data.columns = ['year','inflation']
 pd.set_option('display.max_rows', None)
 
 #Reading the world map
-world= gpd.read_file(r'/Users/angelateyvi/Documents/GitHub/WorldBank-Data-Series/worldmap/World_Map.shp')
-#world_map = geopandas.read_file(geopandas.datasets.get_path('naturalearth_lowres'))
-
-#Removing other continents except Africa
-#africa_map = world_map[world_map['continent'].str.lower() == 'africa']
+africa_map= gpd.read_file(r'/Users/angelateyvi/Documents/GitHub/WorldBank-Data-Series/worldmap/Africa_Boundaries.shp')
 
 #replacing the data with different names
 #africa_map.replace("Central African Rep." , "Central African Republic" , inplace = True)
@@ -50,13 +46,13 @@ pd.set_option('display.max_rows', None)
 pd.set_option('display.expand_frame_repr', False)
 
 #data cleaning- checking data for similar entries
-#for index, row in data.iterrows():
-   # if index not in africa_map['name'].to_list():
-#        print(index + ' is not in the list of shapefile' )
- #   else:
-  #      pass
+for index, row in data.iterrows():
+    if index not in africa_map['NAME_0'].to_list():
+        print(index + ' is not in the list' )
+    else:
+        pass
 
 #printing results
-print(world)
+print(africa_map)
 #print(africa_map)
 print(data)
