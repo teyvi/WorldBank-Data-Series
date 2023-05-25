@@ -20,7 +20,7 @@ data.columns = ['year','inflation']
 pd.set_option('display.max_rows', None)
 
 #Reading the world map
-africa_map= gpd.read_file(r'/Users/angelateyvi/Documents/GitHub/WorldBank-Data-Series/worldmap/Africa_Boundaries.shp')
+africa_map= gpd.read_file(r'/Users/angelateyvi/Documents/GitHub/WorldBank-Data-Series/worldmap/african_map.shp')
 
 #replacing the data with different names
 #africa_map.replace("Central African Rep." , "Central African Republic" , inplace = True)
