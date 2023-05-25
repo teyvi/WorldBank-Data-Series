@@ -11,7 +11,7 @@ data=wb.download(indicator='FP.CPI.TOTL.ZG',
                           "GA", "GM", "GH", "GN", "GW", "KE", "LS", "LR", "LY", "MG",
                           "MW", "ML", "MR", "MU", "MA", "MZ", "NA", "NE", "NG", "RW",
                           "ST", "SN", "SC", "SL", "SO", "ZA", "SS", "SD", "TZ", "TG",
-                          "TN", "UG", "ZM", "ZW", "SC")
+                          "TN", "UG", "ZM", "ZW")
                  ,start=2000, end=2020)
 
 #resetting index for merging
@@ -24,10 +24,10 @@ africa_map= gpd.read_file(r'/Users/angelateyvi/Documents/GitHub/WorldBank-Data-S
 
 #replacing the data with different names
 #africa_map.replace("Central African Rep." , "Central African Republic" , inplace = True)
-#africa_map.replace("Cote d'Ivoire","Côte d'Ivoire", inplace = True)
-#africa_map.replace("Congo, Dem. Rep."," Dem. Rep. Congo", inplace = True) y
-#africa_map.replace("Comoros"," Dem. Rep. Congo", inplace = True)
-#africa_map.replace("Cabo Verde "," Dem. Rep. Congo", inplace = True)
+africa_map.replace("Côte d'Ivoire" , "Cote d'Ivoire", inplace = True)
+africa_map.replace("Democratic Republic of the Congo","Congo, Dem. Rep.", inplace = True)
+africa_map.replace("Republic of Congo","Congo, Rep.", inplace = True)
+africa_map.replace("Cape Verde","Cabo Verde", inplace = True)
 #africa_map.replace("Egypt, Arab Rep.","Egypt", inplace = True)
 #africa_map.replace("Gambia, The","Gambia", inplace = True)
 #africa_map.replace("Equatorial Guinea","Eq. Guinea", inplace = True) y
@@ -35,7 +35,7 @@ africa_map= gpd.read_file(r'/Users/angelateyvi/Documents/GitHub/WorldBank-Data-S
 #africa_map.replace("South Sudan","S. Sudan", inplace = True) y
 #africa_map.replace("Sao Tome and Principe","S. Sudan", inplace = True)
 #africa_map.replace("Eswatini","eSwatini", inplace = True) y
-#africa_map.replace["Seychelles","eSwatini", inplace = True)
+#africa_map.replace["Seychelles","Djibouti", inplace = True)
 
 
 
