@@ -32,15 +32,34 @@ africa_map.replace("Egypt","Egypt, Arab Rep.", inplace = True)
 africa_map.replace("Gambia" , "Gambia, The", inplace = True)
 africa_map.replace("Swaziland","Eswatini", inplace = True)
 
+#merging the data with africa map
 merge= africa_map.join(data, on = "NAME_0" , how = 'right')
-print(merge)
 #expanding the table
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
 pd.set_option('display.expand_frame_repr', False)
 
-#data cleaning- checking data for similar entries
+#creating a for loop to iterete the dates
 
+#plot
+ax = merge.plot(column = 'inflation',
+                cmap ='orRd',
+                legend = True,
+                scheme = 'user_defined',
+                classification_kwds = { 'bins': [-5,0,5,10,15,20,25,30,35,40,45,50,55]}
+                )
+
+#adding a title to the map
+ax.set_title ('Inflation in Countries at')
+#removing the axis
+ax.set_axis_off()
+
+#move legend
+ax.get_legend().set_bbox_to_anchor((0.18,0.6))
+print(merge)
+
+
+#data cleaning- checking data for similar entries
 #for index, row in data.iterrows():
 #    if index not in africa_map['NAME_0'].to_list():
 #        print(index + ' is not in the list' )
