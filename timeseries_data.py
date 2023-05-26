@@ -1,8 +1,7 @@
-from pandas_datareader import wb
-from prettytable import PrettyTable
 import geopandas as gpd
 import pandas as pd
 import matplotlib.pyplot as plt
+from pandas_datareader import wb
 
 #downloading data for only Africa
 data=wb.download(indicator='FP.CPI.TOTL.ZG',
@@ -43,7 +42,6 @@ pd.set_option('display.expand_frame_repr', False)
 
 #plot
 ax = merge.plot(column = 'inflation',
-                cmap ='orRd',
                 legend = True,
                 scheme = 'user_defined',
                 classification_kwds = { 'bins': [-5,0,5,10,15,20,25,30,35,40,45,50,55]}
@@ -56,7 +54,6 @@ ax.set_axis_off()
 
 #move legend
 ax.get_legend().set_bbox_to_anchor((0.18,0.6))
-print(merge)
 
 
 #data cleaning- checking data for similar entries
