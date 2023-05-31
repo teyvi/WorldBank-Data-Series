@@ -42,26 +42,30 @@ pd.set_option('display.expand_frame_repr', False)
 
 
 # plot
-ax = merge.plot(column='inflation', cmap='Reds', legend=True)
+ax= merge.plot(column= 'inflation',
+               cmap = 'Reds',
+               legend= True,
+               scheme= 'user_defined',
+               classification_kwds= {'bins':[10, 20, 50, 100, 500, 1000]},
+               figsize= (100,10),
+               )
+
+ax.set_title('Consumer Inflation in Africa',
+             fontdict={'fontsize':20}, pad = 12.5)
+
+#Removing axis
+ax.set_axis_off()
 plt.show()
 
-# removing the axis
-ax.set_axis_off()
-
-# move legend
-ax.get_legend().set_bbox_to_anchor((0.18, 0.6))
-
-# plot
-#ax= merge.plot(column= 'inflation',cmap= 'Reds',legend = True )
-
-#plt.show()
+#Moving legends
+ax.get_legend().set_bbox_to_anchor(0.5,0.6)
 
 # adding a title to the map
 #ax.set_title('Inflation in Countries at', fontdict ={'fontsize':20} ,pad = 12.5)
 
 # removing the axis
 #ax.set_axis_off()
-
+#plt.show()
 # move legend
 #ax.get_legend().set_bbox_to_anchor= ((0.18 , 0.6))
 
