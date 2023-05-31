@@ -2,7 +2,7 @@ import geopandas as gpd
 import pandas as pd
 from pandas_datareader import wb
 import matplotlib.pyplot as plt
-
+import mapclassify
 
 # downloading data for only Africa
 data = wb.download(indicator='FP.CPI.TOTL.ZG',
@@ -40,7 +40,6 @@ pd.set_option('display.max_rows', None)
 pd.set_option('display.expand_frame_repr', False)
 # print(merge.head())
 
-
 # plot
 ax = merge.plot(column='inflation', cmap='Reds', legend=True)
 plt.show()
@@ -50,30 +49,3 @@ ax.set_axis_off()
 
 # move legend
 ax.get_legend().set_bbox_to_anchor((0.18, 0.6))
-
-# plot
-#ax= merge.plot(column= 'inflation',cmap= 'Reds',legend = True )
-
-#plt.show()
-
-# adding a title to the map
-#ax.set_title('Inflation in Countries at', fontdict ={'fontsize':20} ,pad = 12.5)
-
-# removing the axis
-#ax.set_axis_off()
-
-# move legend
-#ax.get_legend().set_bbox_to_anchor= ((0.18 , 0.6))
-
-
-# data cleaning- checking data for similar entries
-# for index, row in data.iterrows():
-#    if index not in africa_map['NAME_0'].to_list():
-#        print(index + ' is not in the list' )
-#   else:
-#      pass
-
-# printing results
-# print(africa_map)
-# print(africa_map)
-# print(data)
