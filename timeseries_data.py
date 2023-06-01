@@ -50,24 +50,15 @@ ax= merge.plot(column= 'inflation',
                figsize= (100,10),
                )
 
-ax.set_title('Consumer Inflation in Africa',
-             fontdict={'fontsize':20}, pad = 12.5)
+ax.set_title('Consumer Inflation in Africa', fontdict={'fontsize':20}, pad = 12.5)
 
 #Removing axis
 ax.set_axis_off()
-plt.show()
 
 #Moving legends
-ax.get_legend().set_bbox_to_anchor(0.5,0.6)
+ax.get_legend().set_bbox_to_anchor(-0.15,4)
 
-# adding a title to the map
-#ax.set_title('Inflation in Countries at', fontdict ={'fontsize':20} ,pad = 12.5)
 
-# removing the axis
-#ax.set_axis_off()
-#plt.show()
-# move legend
-#ax.get_legend().set_bbox_to_anchor= ((0.18 , 0.6))
 
 
 # data cleaning- checking data for similar entries
@@ -77,7 +68,8 @@ ax.get_legend().set_bbox_to_anchor(0.5,0.6)
 #   else:
 #      pass
 
-# printing results
+# printing data results
 # print(africa_map)
 # print(africa_map)
 # print(data)
+plt.show()
