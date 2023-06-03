@@ -5,14 +5,12 @@ import matplotlib.pyplot as plt
 
 
 # downloading data for only Africa
-data = wb.download(indicator='FP.CPI.TOTL.ZG',
-                 country =("DZ", "AO", "BJ", "BW", "BF", "BI", "CV", "CM", "CF", "TD",
-                           "KM", "CG", "CD", "CI", "DJ", "EG", "GQ", "ER", "SZ", "ET",
-                           "GA", "GM", "GH", "GN", "GW", "KE", "LS", "LR", "LY", "MG",
-                           "MW", "ML", "MR", "MU", "MA", "MZ", "NA", "NE", "NG", "RW",
-                           "ST", "SN", "SC", "SL", "SO", "ZA", "SS", "SD", "TZ", "TG",
-                           "TN", "UG", "ZM", "ZW"),
-                  start=2000, end=2020)
+data = wb.download(indicator='FP.CPI.TOTL.ZG', country =("DZ", "AO", "BJ", "BW", "BF", "BI", "CV", "CM", "CF", "TD",
+                                                         "KM", "CG", "CD", "CI", "DJ", "EG", "GQ", "ER", "SZ", "ET",
+                                                         "GA", "GM", "GH", "GN", "GW", "KE", "LS", "LR", "LY", "MG",
+                                                         "MW", "ML", "MR", "MU", "MA", "MZ", "NA", "NE", "NG", "RW",
+                                                         "ST", "SN", "SC", "SL", "SO", "ZA", "SS", "SD", "TZ", "TG",
+                                                         "TN", "UG", "ZM", "ZW"), start=2000, end=2020)
 
 # resetting index for merging
 data = data.reset_index(1)
@@ -38,28 +36,28 @@ merge = africa_map.join(data, on = "NAME_0", how = 'right')
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
 pd.set_option('display.expand_frame_repr', False)
-# print(merge.head())
-
+print(merge)
 
 # plot
-ax= merge.plot(column= 'inflation',
-               cmap = 'Reds',
-               legend= True,
-               scheme= 'user_defined',
-               classification_kwds= {'bins':[10, 20, 50, 100, 500, 1000]},
-               figsize= (100,10),
-               )
+ax = merge.plot(column= 'inflation',
+                cmap = 'Reds',
+                legend= True,
+                legend_kwds={"label": "Population in 2010", "orientation": "horizontal"},
+                scheme= 'user_defined',
+                classification_kwds= {'bins':[10, 20, 50, 100, 500, 600]},
+                figsize= (10,10),
+                edgecolor='red',
+                linewidth= 0.09,
+                linestyle='dashed')
 
-ax.set_title('Consumer Inflation in Africa', fontdict={'fontsize':20}, pad = 12.5)
+ax.set_title('Consumer Inflation in Africa:', fontdict={'fontsize': 20}, pad = 12.5)
 
-#Removing axis
+# Removing axis
 ax.set_axis_off()
 
-#Moving legends
-ax.get_legend().set_bbox_to_anchor(-0.15,4)
-
-
-
+# Moving legends
+if ax.get_legend():
+    ax.get_legend().set_bbox_to_anchor((0.10, 0.6))
 
 # data cleaning- checking data for similar entries
 # for index, row in data.iterrows():
