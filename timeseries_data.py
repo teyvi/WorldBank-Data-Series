@@ -16,6 +16,11 @@ data = wb.download(indicator='FP.CPI.TOTL.ZG', country =("DZ", "AO", "BJ", "BW",
 data = data.reset_index(1)
 data.columns = ['year', 'inflation']
 
+for i in range(len(data['year'])):
+    year_value = data['year'].iloc[i]
+    date = datetime(year=int(year_value), month=1, day=1)
+    data['year'] = data['year'].apply(lambda year_value: datetime(year=int(year_value), month=1, day=1))
+
 # Reading the world map
 africa_map = gpd.read_file(r'/Users/angelateyvi/Documents/GitHub/WorldBank-Data-Series/worldmap/african_map.shp')
 
@@ -37,6 +42,7 @@ pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
 pd.set_option('display.expand_frame_repr', False)
 print(merge)
+
 
 # plot
 ax = merge.plot(column= 'inflation',
